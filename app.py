@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import os
+import tempfile
 import streamlit as st 
 import pickle as pkl 
 import py7zr
@@ -10,12 +11,13 @@ from nltk.stem.porter import PorterStemmer
 archive_path = 'News_zipdata.7z'
 csv_filename = 'News_data.csv'
 
-with py7zr.SevenZipFile(archive_path, mode='r') as archive:
-    extracted_files = archive.extract(targets=[csv_filename]) 
+with tempfile.TemporaryDirectory() as temp_dir:
+     with py7zr.SevenZipFile(archive_path, mode='r') as archive:
+     extracted_files = archive.extract(path=temp_dir) 
 
-csv_file_path = os.path.join('extracted_files', csv_filename)
+  csv_file_path = os.path.join(temp_dir, csv_filename)
 
-news_data = pd.read_csv(csv_file_path)
+  news_data = pd.read_csv(csv_file_path)
 
 loaded_model = pkl.load(open('classifier.pkl','rb'))
 stopwords_list = pkl.load(open('stopwords.pkl','rb'))

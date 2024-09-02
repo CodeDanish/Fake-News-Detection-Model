@@ -13,11 +13,16 @@ csv_filename = 'News_data.csv'
 
 with tempfile.TemporaryDirectory() as temp_dir:
      with py7zr.SevenZipFile(archive_path, mode='r') as archive:
-     extracted_files = archive.extract(path=temp_dir) 
+         extracted_files = archive.extract(path=temp_dir)  
+     
+     print("Extracted files:", os.listdir(temp_dir))
+ 
+     csv_file_path = os.path.join(temp_dir, csv_filename)
 
-  csv_file_path = os.path.join(temp_dir, csv_filename)
-
-  news_data = pd.read_csv(csv_file_path)
+     if not os.path.exists(csv_file_path):
+        raise FileNotFoundError(f"File not found: {csv_file_path}")
+          
+     news_data = pd.read_csv(csv_file_path)
 
 loaded_model = pkl.load(open('classifier.pkl','rb'))
 stopwords_list = pkl.load(open('stopwords.pkl','rb'))

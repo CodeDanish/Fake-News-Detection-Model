@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import requests
+import os
 import streamlit as st 
 import pickle as pkl 
 import py7zr
@@ -11,11 +11,11 @@ archive_path = 'News_zipdata.7z'
 csv_filename = 'News_data.csv'
 
 with py7zr.SevenZipFile(archive_path, mode='r') as archive:
-    extracted_files = archive.extract(targets=[csv_filename])
+    extracted_files = archive.extract(targets=[csv_filename]) 
 
-    csv_file_path = extracted_files.get(csv_filename)
+csv_file_path = os.path.join('extracted_files', csv_filename)
 
-    news_data = pd.read_csv(csv_file_path)
+news_data = pd.read_csv(csv_file_path)
 
 loaded_model = pkl.load(open('classifier.pkl','rb'))
 stopwords_list = pkl.load(open('stopwords.pkl','rb'))

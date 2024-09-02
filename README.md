@@ -66,7 +66,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 You can customize the accuracy percentage, installation instructions, and other details based on your specific implementation.
 
 
-Demo of Fake News Detection Model : 
+Demo : 
 
 https://fake-news-detection-model-544tkhvnko8gaazccsq5re.streamlit.app/
 

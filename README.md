@@ -108,14 +108,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 > - [NLTK Documentation](https://www.nltk.org/)
 > - [Scikit-learn Documentation](https://scikit-learn.org/stable/)
 > - [Streamlit Documentation](https://docs.streamlit.io/)
-```
 
-### Key Elements:
-- **Emojis**: For an engaging and visually appealing look.
-- **Badges**: Show tech used and license type.
-- **Project Structure**: Displays the organization of files and directories.
-- **Installation and Usage**: Includes the steps to clone and run the project.
-- **Model Performance**: Highlights the different models and their evaluation metrics.
-- **Visuals**: A placeholder for an app screenshot.
 
-You can modify the template by adding your GitHub links, updating the accuracy metrics, and inserting relevant screenshots.
